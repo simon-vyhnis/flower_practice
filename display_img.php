@@ -24,8 +24,26 @@
             $img = $get_img_query->fetch();
 
             echo ("<img src=\"". $img["url"] . "\"/>");
-            //echo("<button class=\"button\" onclick=\"history.go(-1)\">Zpět</button>");
+            echo ("<h3 id = \"flower_name\" style=\"display:none;\">". $img["name"] ."</h3>");
+            echo("<button id=\"button_show\" class=\"button\" onclick=\"onClick1()\">Zobrazit název</button>");
+            echo("<button id=\"button_next\" style=\"display:none;\" class=\"button\" onclick=\"onClick2()\">Další rostlina</button>");
 
     ?>
+    <script>
+        function onClick1(){
+            var flower_name = document.getElementById("flower_name");
+            var button_next = document.getElementById("button_next");
+            var button_show = document.getElementById("button_show");
+            
+            button_next.style.display = "block";
+            button_show.style.display = "none";
+            flower_name.style.display = "block";
+        }
+
+        function onClick2(){
+            location.reload();
+            return false;
+        }
+    </script>
 </body>
 </html>
