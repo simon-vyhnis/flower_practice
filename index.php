@@ -1,4 +1,4 @@
 <?php
-    Header("Location: add_flower.php");
+    Header("Location: display_img.php");
     exit();
 ?>
