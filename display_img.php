@@ -4,6 +4,7 @@
     <meta charset="UTF-16">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Procvičování</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
             $get_img_query->execute();
             $img = $get_img_query->fetch();
 
-            echo ("<img src=\"". $img["url"] . "\"/>");
+            echo ("<img src=\"". $img["url"] . "\"/><br>");
             echo ("<h3 id = \"flower_name\" style=\"display:none;\">". $img["name"] ."</h3>");
             echo("<button id=\"button_show\" class=\"button\" onclick=\"onClick1()\">Zobrazit název</button>");
             echo("<button id=\"button_next\" style=\"display:none;\" class=\"button\" onclick=\"onClick2()\">Další rostlina</button>");

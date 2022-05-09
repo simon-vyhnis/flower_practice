@@ -1,0 +1,22 @@
+body{
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button{
+    color:white;
+    padding: 10px;
+    background-color: rgb(74, 119, 8);
+    border-radius: 10px;
+    border: none;
+}
+
+@media all and (max-width: 1024px) {
+    .button{
+        width: 90%;
+        margin: 5%;
+    }
+    img{
+        width: 90%;
+        margin: 5%;
+    }
+}
