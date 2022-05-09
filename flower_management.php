@@ -19,11 +19,16 @@
             } catch (PDOException $e) {
                 die('Connection failed: ' . $e->getMessage());
             }
-            $add_flower_query = $pdo->prepare("INSERT INTO flower (name) VALUES(?)");
-            $add_flower_query->execute(array($_POST["name"]));
+            $get_flowers_query = $pdo->prepare("SELECT * FROM flower");
+            $get_flowers_query->execute();
+            $flowers = $get_flowers_query->fetchAll();
 
-            echo ("<p>Úspěšně přidáno!</p>");
-            echo("<button class=\"button\" onclick=\"history.go(-1)\">Zpět</button>");
+            foreach($flowers as $flower){
+                echo("<p>" . $flower["name"] . 
+                "<form action=\"add_image.php\" method=\"post\"> " .
+                "<input type=\"hidden\" name=\"flower_id\" value=\"". $flower["id"] . "\"/>" .
+                "<input type=\"submit\" class=\"button\" value=\"Přidat atraktivní obrázek\"> </form></p>");
+            }
 
     ?>
 </body>
