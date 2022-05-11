@@ -1,5 +1,7 @@
 body{
     font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(229deg, rgba(187, 255, 213, 0.788) 4%, rgba(69, 243, 121, 0.479) 55%, rgba(171, 247, 73, 0.616) 100%);
+    background-attachment: fixed;
 }
 
 .button{
@@ -18,5 +20,8 @@ body{
     img{
         width: 90%;
         margin: 5%;
+    }
+    h3{
+        margin: 5%; 
     }
 }

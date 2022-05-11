@@ -24,7 +24,11 @@
             $flowers = $get_flowers_query->fetchAll();
 
             foreach($flowers as $flower){
-                echo("<p>" . $flower["name"] . 
+                $get_img_count_query = $pdo->prepare("SELECT COUNT(id) as num FROM image WHERE flower_id = ?");
+                $get_img_count_query->execute(array($flower["id"]));
+                $img_count = $get_img_count_query->fetch();
+
+                echo("<p>" . $flower["name"] . "(počet obrázků: " . $img_count["num"] . ") " .
                 "<form action=\"add_image.php\" method=\"post\"> " .
                 "<input type=\"hidden\" name=\"flower_id\" value=\"". $flower["id"] . "\"/>" .
                 "<input type=\"submit\" class=\"button\" value=\"Přidat atraktivní obrázek\"> </form></p>");
