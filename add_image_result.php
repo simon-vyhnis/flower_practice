@@ -4,6 +4,7 @@
     <meta charset="UTF-16">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Přidat kytku</title>
 </head>
 <body>
@@ -23,7 +24,12 @@
         $add_image_query = $pdo->prepare("INSERT INTO image (url, flower_id) VALUES (?, ?)");
         $add_image_query->execute(array($_POST["url"], $_POST["flower_id"]));
         echo ("<p>Úspěšně přidáno!</p>");
-        echo("<button class=\"button\" onclick=\"history.go(-2)\">Zpět</button>");
+        echo("<button class=\"button\" onclick=\"onClick()\");\">Přidat další</button>");
     ?>
+    <script>
+        function onClick(){
+            window.location.replace("flower_management.php");
+        }
+    </script>
 </body>
 </html>

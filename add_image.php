@@ -4,7 +4,8 @@
     <meta charset="UTF-16">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přidat kytku</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Přidat obrazek</title>
 </head>
 <body>
     <?php

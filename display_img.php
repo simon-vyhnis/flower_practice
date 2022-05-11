@@ -30,6 +30,10 @@
             echo("<button id=\"button_next\" style=\"display:none;\" class=\"button\" onclick=\"onClick2()\">Další rostlina</button>");
 
     ?>
+
+    <form action="login.php" method="post">
+        <input type="submit" name="button1" class="mini_button" value="Přidat obrázky">
+    </form>
     <script>
         function onClick1(){
             var flower_name = document.getElementById("flower_name");

@@ -4,14 +4,21 @@
     <meta charset="UTF-16">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přidat kytku</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Přidat obrázky</title>
 </head>
 <body>
     <?php
-        include 'db_credentials.php';
-        $dsn = 'mysql:dbname=' . SQL_DBNAME . ';host=' . SQL_HOST . '';
-        $user = SQL_USERNAME;
-        $password = SQL_PASSWORD;
+        $password = "jimjam";
+        session_start();
+        if(isset($_POST["password"]) && $_POST["password"] == $password){
+            $_SESSION["password"] = $_POST["password"];
+        }
+        if($_SESSION["password"] == $password){
+            include 'db_credentials.php';
+            $dsn = 'mysql:dbname=' . SQL_DBNAME . ';host=' . SQL_HOST . '';
+            $user = SQL_USERNAME;
+            $password = SQL_PASSWORD;
 
             try {
                 $pdo = new PDO($dsn, $user, $password);
@@ -28,11 +35,12 @@
                 $get_img_count_query->execute(array($flower["id"]));
                 $img_count = $get_img_count_query->fetch();
 
-                echo("<p>" . $flower["name"] . "(počet obrázků: " . $img_count["num"] . ") " .
+                echo("<p>" . $flower["name"] . " (počet obrázků: " . $img_count["num"] . ") " .
                 "<form action=\"add_image.php\" method=\"post\"> " .
                 "<input type=\"hidden\" name=\"flower_id\" value=\"". $flower["id"] . "\"/>" .
                 "<input type=\"submit\" class=\"button\" value=\"Přidat atraktivní obrázek\"> </form></p>");
             }
+        }
 
     ?>
 </body>

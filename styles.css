@@ -12,6 +12,17 @@ body{
     border: none;
 }
 
+.mini_button {
+    color:white;
+    padding: 5px;
+    background-color: rgb(74, 119, 8);
+    border-radius: 5px;
+    border: none;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
 @media all and (max-width: 1024px) {
     .button{
         width: 90%;
